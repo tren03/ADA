@@ -46,28 +46,27 @@ void merge(int arr[], int left, int mid, int right) {
 
 // Merge Sort function
 void mergeSort(int arr[], int left, int right) {
-    if (left >= right)
-        return;
-
-    int mid = left + (right - left) / 2;
-
-    // Sort the two halves
-    mergeSort(arr, left, mid);
-    mergeSort(arr, mid + 1, right);
-
-    // Merge the sorted halves
-    merge(arr, left, mid, right);
+    
+    if(left<right)
+    {
+        int mid = left + (right - left) / 2;
+        // Sort the two halves
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        // Merge the sorted halves
+        merge(arr, left, mid, right);
+    }
 }
 
 int main() {
-    // int arr[] = {12, 11, 13, 5, 6, 7};
-    int size=1000;
-    int arr[size];
-    // int n = sizeof(arr) / sizeof(arr[0]);    
-    for(int i=0;i<size;i++)
-    {
-        arr[i]=rand()%1000;
-    }
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    // int size=10;
+    // int arr[size];
+    int size = sizeof(arr) / sizeof(arr[0]);    
+    // for(int i=0;i<size;i++)
+    // {
+    //     arr[i]=rand()%1000;
+    // }
 
     std::cout << "Original array: ";
     for (int i = 0; i < size; i++) {
